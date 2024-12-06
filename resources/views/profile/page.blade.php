@@ -114,4 +114,18 @@
             </div>
         </div>
     </div>
+
+    <div class="container">
+        <div class="row ">
+            <h5>I MIEI BRANI</h5>
+        </div>
+        <div class="row justify-content-center">
+            @foreach ($user->tracks as $track)
+                <div class="col-12 col-md-3">
+                    <x-card :track="$track"></x-card>
+                </div>
+             @endforeach
+        </div>
+    </div>
+
 </x-layout>

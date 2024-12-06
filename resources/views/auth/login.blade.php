@@ -22,7 +22,7 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="submit" class="btn btn-primary">Login</button>
                 <div class="mt-2">
                     <span>Don't have an account? <a href="{{route('register')}}">Register</a></span>
                 </div>

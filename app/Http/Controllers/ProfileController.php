@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Routing\Controllers\HasMiddleware;
 
-class ProfileController extends Controller
+class ProfileController extends Controller implements HasMiddleware
 {
+    public static function middleware() {
+        return [
+            'auth'
+        ];
+    }
     public function page() {
         $user = auth()->user();
         return view('profile.page', compact('user'));

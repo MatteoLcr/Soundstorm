@@ -15,6 +15,9 @@ class User extends Authenticatable
     public function profile() {
         return $this->hasOne(Profile::class);
     }
+    public function tracks() {
+        return $this->hasMany(Track::class);
+    }
 
     /**
      * The attributes that are mass assignable.
