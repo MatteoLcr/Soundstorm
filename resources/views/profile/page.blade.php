@@ -11,7 +11,7 @@
     <div class="container mt-5">
         <div class="row justify-content-evenly">
             <div class="col-4 p-5">
-                <img class="img-fluid" src="" alt="">
+                <img class="img-fluid" src="/avatars/user1.jpg" alt="">
                 <form class="mt-5" action="{{ route('profile.setAvatar', compact('user'))}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
