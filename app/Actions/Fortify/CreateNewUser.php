@@ -45,6 +45,7 @@ class CreateNewUser implements CreatesNewUsers
             'country' => $input['country'],
             'zip_code' => $input['zip_code'],
             'mobile_number' => $input['mobile_number'],
+            'is_admin' => $input['is_admin'] ?? false,
         ]);
 
         return $user;

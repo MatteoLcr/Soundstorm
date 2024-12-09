@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TrackController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ProfileController;
@@ -19,4 +20,14 @@ Route::post('/track/create', [TrackController::class, 'store'])->name('track.sto
 Route::get('/track/all-tracks', [TrackController::class, 'index'])->name('track.index');
 // ricerca per artista
 Route::get('/track/all-tracks/{user}/autore', [TrackController::class, 'filterByUser'])->name('track.filterByUser');
+// dashboard admin
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+Route::get('/admin/dashboard/users', [AdminController::class, 'users'])->name('admin.dashboardUsers');
+Route::get('/admin/dashboard/traks', [AdminController::class, 'tracks'])->name('admin.dashboardTracks');
+Route::get('/admin/dashboard/genres', [AdminController::class, 'genres'])->name('admin.dashboardGenres');
+// aggiungere, modificare e cancellare un genere
+Route::post('/admin/dashboard/genres/store', [AdminController::class, 'store'])->name('admin.dashboard.genres.store');
+Route::put('/admin/dashboard/genres/{genre}/update', [AdminController::class, 'update'])->name('admin.dashboard.genres.update');
+Route::delete('/admin/dashboard/genres/{genre}/destroy', [AdminController::class, 'destroy'])->name('admin.dashboard.genres.destroy');
+
 

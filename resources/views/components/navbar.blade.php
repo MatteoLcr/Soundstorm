@@ -31,6 +31,9 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{{route('profilo.page')}}">Il mio profilo</a></li>
+            @if(auth()->user()->isAdmin)
+            <li><a class="dropdown-item" href="{{route('admin.dashboard')}}">Dashboard</a></li>
+            @endif
             <li><a class="dropdown-item" href="#">Contattaci</a></li>
             <li><a class="dropdown-item" href="#">FAQ</a></li>
             <li>

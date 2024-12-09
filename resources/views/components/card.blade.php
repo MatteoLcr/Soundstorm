@@ -1,7 +1,7 @@
 <div class="card">
 
     <div class="text-center">
-        <img src="{{Storage::url($track->cover)}}" alt="{{$track->title}}" width="200" class="p-3 rounded-pill">
+        <img src="{{Storage::url($track->cover)}}" alt="{{$track->title}}" width="200" class="p-3">
     </div>
 
     <div class="card-body">
@@ -15,6 +15,6 @@
         </div>
     </div>
     <div class="card-footer text-body-secondary small">
-        Inserito da: <a href="{{route('track.filterbyUser', ['user' => $track->user])}}">{{$track->user->name}}</a> - {{ $track->created_at->format('d/m/Y') }}
+        Inserito da: <a href="{{route('track.filterByUser', ['user' => $track->user])}}">{{$track->user->name}}</a> - {{ $track->created_at->format('d/m/Y') }}
     </div>
 </div>
