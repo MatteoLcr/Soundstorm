@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Genre;
 use App\Models\Track;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +29,8 @@ class TrackController extends Controller implements HasMiddleware
         return view('track.index', compact('tracks'));
     }
 
-    public function filterByUser(User $user){
+    public function filterByUser(User $user)
+    {
         $tracks = Track::where('user_id', $user->id)->orderby('created_at', 'desc')->get();
         return view('track.searchByUser', compact('tracks', 'user'));
     }
@@ -38,7 +40,14 @@ class TrackController extends Controller implements HasMiddleware
      */
     public function create()
     {
-        return view('track.create');
+        $genres = Genre::all();
+        return view('track.create', compact('genres'));
+    }
+
+    public function filterbyGenre(Genre $genre)
+    {
+        $tracks = $genre->tracks->sortByDesc('created_at');
+        return view('track.searchByGenre', compact('tracks', 'genre'));
     }
 
     /**
@@ -51,18 +60,21 @@ class TrackController extends Controller implements HasMiddleware
             'cover' => 'required|image',
             'description' => 'required',
             'path' => 'required|file|mimes:mp3,wav,aac',
+            'genres' => 'required'
         ]);
 
-        Track::create([
+        $track = Track::create([
             'title' => $request->title,
             'cover' => $request->file('cover')->store('covers', 'public'),
             'description' => $request->description,
             'path' => $request->file('path')->store('tracks', 'public'),
-            'user_id' => Auth::user()->id
+            'user_id' => Auth::user()->id,
         ]);
+
+        $track->genres()->attach($request->genres);
         return redirect(route('welcome'))->with('success', 'Hai aggiunto correttamente il tuo brano');
     }
- 
+
     /**
      * Display the specified resource.
      */

@@ -53,6 +53,20 @@
                         @enderror
                     </div>
 
+                    <div class="mb-3">
+                        <label for="" class="form-label">Genere</label>
+                        <div>
+                            @foreach($genres as $genre)
+                            <input type="checkbox" name="genres[]" value="{{ $genre->id }}" class="btn-check" id="btn-check{{ $genre->id }}" autocomplete="off">
+                            <label class="btn btn-outline-dark my-1" for="btn-check{{ $genre->id }}"> {{ $genre->name }}</label>
+                            @endforeach
+                        </div>
+
+                        @error('genres')
+                        <span class="small text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+
                     <button type="submit" class="btn btn-dark">Pubblica</button>
                     <a href="{{route('welcome')}}" class="btn btn-outline-dark">Torna alla home</a>
 

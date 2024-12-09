@@ -7,6 +7,7 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ProfileController;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('welcome');
+
 // il mio profilo
 Route::get('/profilo', [ProfileController::class, 'page'])->name('profilo.page');
 // modifica del profilo
@@ -18,8 +19,11 @@ Route::put('/profilo/{user}/aggiorna-dati', [ProfileController::class, 'update']
 Route::get('/track/create', [TrackController::class, 'create'])->name('track.create');
 Route::post('/track/create', [TrackController::class, 'store'])->name('track.store');
 Route::get('/track/all-tracks', [TrackController::class, 'index'])->name('track.index');
-// ricerca per artista
+// filtro per genere
 Route::get('/track/all-tracks/{user}/autore', [TrackController::class, 'filterByUser'])->name('track.filterByUser');
+// ricerca per artista
+Route::get('/track/all-tracks/{genre}/genere', [TrackController::class, 'filterByGenre'])->name('track.filterByGenre');
+
 // dashboard admin
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 Route::get('/admin/dashboard/users', [AdminController::class, 'users'])->name('admin.dashboardUsers');

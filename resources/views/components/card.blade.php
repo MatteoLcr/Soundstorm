@@ -5,6 +5,14 @@
     </div>
 
     <div class="card-body">
+        @if($track->genres->count())
+            @foreach($track->genres as $genre)
+            <a href="{{route('track.filterByGenre', ['genre' => $genre])}}" class="me-1 small">#{{$genre->name}}</a>
+            @endforeach
+        @else
+            <span class="small">Gnere sconosciuto</span>
+        @endif
+        <h6><a href="{{route('track.filterByUser', ['user' => $track->user])}}">{{$track->user->name}}</a></h6>
         <h5 class="card-title">{{$track->title}}</h5>
         <p class="card-text">{{$track->description}}</p>
         <div>
@@ -15,6 +23,6 @@
         </div>
     </div>
     <div class="card-footer text-body-secondary small">
-        Inserito da: <a href="{{route('track.filterByUser', ['user' => $track->user])}}">{{$track->user->name}}</a> - {{ $track->created_at->format('d/m/Y') }}
+        {{ $track->created_at->format('d/m/Y') }}
     </div>
 </div>
