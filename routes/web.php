@@ -16,3 +16,7 @@ Route::put('/profilo/{user}/aggiorna-dati', [ProfileController::class, 'update']
 // track
 Route::get('/track/create', [TrackController::class, 'create'])->name('track.create');
 Route::post('/track/create', [TrackController::class, 'store'])->name('track.store');
+Route::get('/track/all-tracks', [TrackController::class, 'index'])->name('track.index');
+// ricerca per artista
+Route::get('/track/all-tracks/{user}/autore', [TrackController::class, 'filterByUser'])->name('track.filterByUser');
+

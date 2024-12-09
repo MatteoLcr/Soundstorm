@@ -15,6 +15,6 @@
         </div>
     </div>
     <div class="card-footer text-body-secondary small">
-        Inserito da: <a>{{$track->user->name}}</a> - {{$track->created_at->format('d/m/Y')}}
+        Inserito da: <a href="{{route('track.filterbyUser', ['user' => $track->user])}}">{{$track->user->name}}</a> - {{ $track->created_at->format('d/m/Y') }}
     </div>
 </div>

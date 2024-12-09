@@ -2,9 +2,9 @@
 
     <div class="container">
         <div class="row">
-            <div class="div-col-12">
+            <div class="col-12 d-flex justify-content-center align-items-center my-5">
 
-                <span id="element"></span>
+                <span id="element" class="fs-1"></span>
                 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
                 <script>
                     var typed = new Typed('#element', {

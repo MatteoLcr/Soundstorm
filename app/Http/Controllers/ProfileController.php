@@ -19,17 +19,16 @@ class ProfileController extends Controller implements HasMiddleware
         return view('profile.page', compact('user'));
     }
 
-    public function setAvatar(Request $request, User $user) 
-    {
+
+
+    public function setAvatar(Request $request, User $user){
         $request->validate([
             'avatar' => 'image',
         ]);
-
-        $user->profile->update([
-            'avatar' => $request->file('avatar')->store('/public/avatars'),
+        $user->profile()->update([
+            'avatar' => $request->file('avatar')->store('avatars', 'public')
         ]);
-
-        return redirect()->back()-with('success', 'Avatar aggiornato con successo');
+        return redirect()->back()->with('success', 'Avatar aggiornato');
     }
 
     public function edit(User $user) {
@@ -44,8 +43,7 @@ class ProfileController extends Controller implements HasMiddleware
                 'string',
                 'email',
                 'max:255',
-                Rule::unique('users')->ignore($user->id),
-            ],
+                Rule::unique('users')->ignore($user->id)]
         ]);
 
         $user->update([

@@ -8,10 +8,15 @@
         </div>
     </div>
     @endif
+
     <div class="container mt-5">
         <div class="row justify-content-evenly">
             <div class="col-4 p-5">
-                <img class="img-fluid" src="/avatars/user1.jpg" alt="">
+                <div class="mt-3">
+                    <h4>{{Auth::user()->name}}</h4>
+                    <p class="text-muted font-size-sm">{{$user->profile->city}}, {{$user->profile->province}}, {{$user->profile->country}}</p>
+                </div>
+                <img src="{{$user->profile->avatar ? Storage::url($user->profile->avatar) : 'public/storage/default.png'}}" alt="Admin" class="rounded-circle" width="250" height="250">
                 <form class="mt-5" action="{{ route('profile.setAvatar', compact('user'))}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -121,10 +126,10 @@
         </div>
         <div class="row justify-content-center">
             @foreach ($user->tracks as $track)
-                <div class="col-12 col-md-3">
-                    <x-card :track="$track"></x-card>
-                </div>
-             @endforeach
+            <div class="col-12 col-md-3">
+                <x-card :track="$track"></x-card>
+            </div>
+            @endforeach
         </div>
     </div>
 

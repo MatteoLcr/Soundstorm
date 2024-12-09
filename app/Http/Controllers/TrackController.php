@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Track;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +14,7 @@ class TrackController extends Controller implements HasMiddleware
     public static function middleware(): array
     {
         return [
-            new Middleware('auth', except: ['index'])
+            new Middleware('auth', except: ['index', 'searchByUser'])
         ];
     }
 
@@ -22,7 +23,14 @@ class TrackController extends Controller implements HasMiddleware
      */
     public function index()
     {
-        //
+        $tracks = Track::orderBy('created_at', 'desc')->get();
+
+        return view('track.index', compact('tracks'));
+    }
+
+    public function filterByUser(User $user){
+        $tracks = Track::where('user_id', $user->id)->orderby('created_at', 'desc')->get();
+        return view('track.searchByUser', compact('tracks', 'user'));
     }
 
     /**
@@ -39,17 +47,17 @@ class TrackController extends Controller implements HasMiddleware
     public function store(Request $request)
     {
         $request->validate([
-            'title' => ['required'],
-            'cover' => ['required', 'image'],
-            'description' => ['required'],
+            'title' => 'required',
+            'cover' => 'required|image',
+            'description' => 'required',
             'path' => 'required|file|mimes:mp3,wav,aac',
         ]);
 
         Track::create([
             'title' => $request->title,
-            'cover' => $request->file('cover')->store('/public/covers'),
+            'cover' => $request->file('cover')->store('covers', 'public'),
             'description' => $request->description,
-            'path' => $request->file('path')->store('/public/tracks'),
+            'path' => $request->file('path')->store('tracks', 'public'),
             'user_id' => Auth::user()->id
         ]);
         return redirect(route('welcome'))->with('success', 'Hai aggiunto correttamente il tuo brano');
