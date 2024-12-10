@@ -1,0 +1,34 @@
+
+.headerImgContainer{
+    margin-top: 70px;
+    height: 400px;
+    background-color: orangered;
+    z-index: -1;
+}
+
+.cardQuadrata{
+    height: 320px;
+    width: 250px;
+    position: relative;
+}
+
+.imgCardQuadrata{
+    height: 250px;
+    width: 250px;
+}
+.controllerCardQuadrata{
+    position: absolute;
+    top: 220px;
+    width: 250px;
+    background-color: whitesmoke;
+}
+.controllerCardQuadrata audio{
+    display: none;
+    height: 30px;
+    width: 250px;
+    outline: none;
+}
+
+.cont:hover .controllerCardQuadrata audio{
+    display: block;
+}

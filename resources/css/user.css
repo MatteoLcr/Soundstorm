@@ -1,0 +1,81 @@
+.userHeader{
+    margin-top: 70px;
+    height: 300px;
+    background-color: orangered
+}
+.userInfoContainer{
+    height: 200px;
+    color: white;
+}
+.userInfoContainer h2, h4{
+    background-color: rgba(0, 0, 0, 0.28);
+}
+
+
+.cardUserCont{
+    height: 200px;
+    background-color: whitesmoke;
+}
+.imgCardrettangolare{
+    height: 200px;
+    width: 200px;
+}
+.topItemCardRettangolare{
+    height: 80px;
+}
+.playButtonCont{
+    background-color: orangered;
+    height: 40px;
+    width: 40px;
+}
+.topTextCardrettangolare{
+    width: 720px;
+}
+.btnCardRettangolare{
+    height: 25px;
+    min-width: 10px;
+    border-radius: 50px;
+    background-color: rgb(220, 220, 220);
+    color: black;
+}
+.cardRettangolare audio{
+    width: 820px;
+    background-color: whitesmoke;
+}
+.linkCardRettangolareContainer{
+    height: 50px;
+    width: 500px;
+}
+.linkBtn{
+    height: 25px;
+    border: 1px solid;
+    border-radius: 5px;    
+}
+.linkBtn i{
+    color: orangered;
+}
+.linkBtn:hover {
+    color: orangered;
+    border: 1px solid orangered;
+}
+.boxSideUser{
+    height: 200px;
+    width: 200px;
+    background-color: aqua;
+}
+.separe{
+    height: 200px;
+    width: 1px;
+    border-left: 0.2px solid rgba(0, 0, 0, 0.16); 
+}
+
+
+
+
+
+
+
+a{
+    text-decoration: none;
+    color: black;
+}
