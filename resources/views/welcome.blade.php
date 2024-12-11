@@ -78,11 +78,6 @@
         </div>
         
         <hr>
-        <div class="row">
-            <div class="col-12 d-flex align-items-center my-3">
-                <h3>ARTISTI</h3>
-            </div>
-        </div>
     </div>
 
 

@@ -1,0 +1,12 @@
+.topItem{
+    margin-top: 200px;
+}
+.userIndexContainer {
+    height: 300px;
+    width: 100%;
+    background-color: violet;
+}
+.card-body img{
+    height: 200px;
+    width: 200px;
+}

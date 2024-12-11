@@ -2,6 +2,7 @@ nav{
     height: 50px;
     width: 100%;
     position: fixed;
+    z-index: 5;
 }
 
 
@@ -10,7 +11,7 @@ width: 1320px;
 }
 .logo{
     height: 50px;
-    width: 150px;
+    width: 200px;
     color: white;
     background-color: orangered;
 }
@@ -72,23 +73,23 @@ width: 1320px;
     height: 50px;
     width: 50px;
     color: white;
-    font-size: 24px;
+    font-size: 20px;
 }
 .navBtnSocialTiktok{
     height: 50px;
     width: 50px;
     color: white;
-    font-size: 24px;
+    font-size: 20px;
     position: relative;
 }
 .bi2{
     top: 5px;
-    right: 15px;
+    right: 11px;
     color: royalblue;
 }
 .bi3{
     top: 8px;
-    right: 10px;
+    right: 7px;
     color: rgb(255, 0, 68);
 }
 

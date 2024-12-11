@@ -14,4 +14,11 @@ class PublicController extends Controller
         $tracks =  $tracks = Track::orderBy('created_at', 'desc')->take(8)->get();
         return view('welcome', compact('tracks'));
     }
+
+    public function index()
+    {
+        $users = User::all();
+        $tracks = Track::all();
+        return view('welcome', compact('users', 'tracks'));
+    }   
 }

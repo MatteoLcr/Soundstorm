@@ -8,6 +8,7 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ProfileController;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('welcome');
+Route::get('/all', [PublicController::class, 'index'])->name('index');
 // 
 Route::get('/user/all-users', [UserController::class, 'index'])->name('user.index');
 

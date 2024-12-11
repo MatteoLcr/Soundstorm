@@ -2,7 +2,7 @@
     <div class="navLinkContainer d-flex align-items-center">
 
         <div class="logo d-flex justify-content-center align-items-center">
-            <h5>SOUNSTORM</h5>
+            <h5>SOUNDSTORM</h5>
         </div>
         <a href="{{route('welcome')}}" class="navBtn d-flex justify-content-center align-items-center">
             <h5>Home</h5>
@@ -28,10 +28,10 @@
         <a href="{{route('register')}}" class="navBtnOrange d-flex justify-content-center align-items-center ms-3">
             <h5>Registrati</h5>
         </a>
-        <a href="" class="navBtnSocial ms-3 d-flex justify-content-center align-items-center">
+        <a href="" class="navBtnSocial ms-5 d-flex justify-content-center align-items-center">
             <i class="bi bi-instagram"></i>
         </a>
-        <a href="" class="navBtnSocialTiktok d-flex justify-content-center align-items-center">
+        <a href="" class="navBtnSocialTiktok d-flex justify-content-center align-items-center mx-2">
             <i class="bi3 bi-tiktok position-absolute"></i>
             <i class="bi2 bi-tiktok position-absolute"></i>
             <i class="bi bi-tiktok position-absolute"></i>
