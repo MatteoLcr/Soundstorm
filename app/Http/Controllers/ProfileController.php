@@ -15,8 +15,9 @@ class ProfileController extends Controller implements HasMiddleware
         ];
     }
     public function page() {
+        $likes = auth()->user()->likes;
         $user = auth()->user();
-        return view('profile.page', compact('user'));
+        return view('profile.page', compact('user', 'likes'));
     }
 
 

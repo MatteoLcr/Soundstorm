@@ -19,6 +19,10 @@ class TrackController extends Controller implements HasMiddleware
         ];
     }
 
+    public function authIsCreator(){
+        return $this->user == auth()->user();
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -88,7 +92,12 @@ class TrackController extends Controller implements HasMiddleware
      */
     public function edit(Track $track)
     {
-        //
+        if(!$track->authIsCreator()){
+            abort(403, 'non autorizzato'); 
+        }
+
+        $genres = Genre::all();
+        return view('track.edit', compact('track', 'genres'));
     }
 
     /**
@@ -96,7 +105,37 @@ class TrackController extends Controller implements HasMiddleware
      */
     public function update(Request $request, Track $track)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'genres' => 'required'
+        ]);
+
+        $track->update([
+            'title' => $request->title,
+            'description' => $request->description,    
+        ]);
+
+        if($request->cover){
+            $request->validate([
+                'cover' => 'image',
+            ]);
+            $track->update([
+                'cover' => $request->file('cover')->store('covers', 'public'),
+            ]);
+        }
+
+        if($request->path){
+            $request->validate([
+                'path' => 'file|mimes:mp3,wav,aac',
+            ]);
+            $track->update([
+                'path' => $request->file('path')->store('tracks', 'public'),
+            ]);
+        }
+
+        $track->genres()->sync($request->genres);
+        return redirect(route('profile.page'))->with('success', 'Hai aggiornato correttamente il tuo brano');
     }
 
     /**
@@ -104,6 +143,8 @@ class TrackController extends Controller implements HasMiddleware
      */
     public function destroy(Track $track)
     {
-        //
+        $track->genres()->detach($track->genres);
+        $track->delete();
+        return redirect(route('profile.page'))->with('success', 'Hai eliminato correttamente il tuo brano');
     }
 }

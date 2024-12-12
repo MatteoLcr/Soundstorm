@@ -9,7 +9,7 @@
     </div>
     @endif
 
-    <div class="container mt-5">
+    <div class="container">
         <div class="row justify-content-evenly">
             <div class="col-4 p-5">
                 <div class="mt-3">
@@ -126,11 +126,29 @@
         </div>
         <div class="row justify-content-center">
             @foreach ($user->tracks as $track)
-            <div class="col-12 col-md-3">
-                <x-card :track="$track"></x-card>
+            <div class="col-3 d-flex justify-content-center mx-2 cardQuadrataUser">
+                <x-cardUserProfile :track="$track"></x-card>
             </div>
             @endforeach
         </div>
-    </div>
+
+        <div class="row ">
+            <h5>BRANI CHE MI PIACCIONO</h5>
+        </div>
+        <div class="row justify-content-center">
+            @foreach($likes as $like)
+
+            @php
+                $like = $track->likes->where('user_id', auth()->user()->id)->first();
+                $is_liked = $like ? $like->like : 0;  
+                @endphp
+            @if($is_liked)
+            <div class="col-10 mb-5 d-flex flex-row justify-content-evenly">
+                <x-cardRettangolareUser :track="$track"></x-cardRettangolareUser>
+            </div>
+            @endif
+                @endforeach
+            </div>
+        </div>
 
 </x-layout>

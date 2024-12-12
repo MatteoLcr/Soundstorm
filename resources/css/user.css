@@ -72,6 +72,45 @@
 
 
 
+.cardQuadrataUser{
+    height: 360px;
+    width: 250px;
+    position: relative;
+}
+
+.imgCardQuadrataUser{
+    height: 250px;
+    width: 250px;
+}
+.controllerCardQuadrataUser{
+    position: absolute;
+    top: 220px;
+    width: 250px;
+    background-color: whitesmoke;
+}
+.controllerCardQuadrataUser audio{
+    display: none;
+    height: 30px;
+    width: 250px;
+    outline: none;
+}
+
+.cont:hover .controllerCardQuadrataUser audio{
+    display: block;
+}
+
+
+.iconUserCardContainer{
+}
+.bi-sliders2-vertical{
+    font-size: 20px;
+    color: orangered;
+}
+.bi-trash3{
+    font-size: 20px;
+    color: orangered;
+}
+
 
 
 

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TrackController;
@@ -27,6 +28,12 @@ Route::get('/track/all-tracks', [TrackController::class, 'index'])->name('track.
 Route::get('/track/all-tracks/{user}/autore', [TrackController::class, 'filterByUser'])->name('track.filterByUser');
 // ricerca per genere
 Route::get('/track/all-tracks/{genre}/genere', [TrackController::class, 'filterByGenre'])->name('track.filterByGenre');
+// modifica di un brano
+Route::get('/track/aggiorna/{track}/brano', [TrackController::class, 'edit'])->name('track.edit');
+Route::put('/track/aggiorna/{track}/brano', [TrackController::class, 'update'])->name('track.update');
+// eliminazione di un brano
+Route::delete('/track/elimina/{track}/brano', [TrackController::class, 'destroy'])->name('track.destroy');
+
 // aggiungere, modificare e cancellare un genere
 Route::post('/admin/dashboard/genres/store', [AdminController::class, 'store'])->name('admin.dashboard.genres.store');
 Route::put('/admin/dashboard/genres/{genre}/update', [AdminController::class, 'update'])->name('admin.dashboard.genres.update');
@@ -38,3 +45,5 @@ Route::get('/admin/dashboard/users', [AdminController::class, 'users'])->name('a
 Route::get('/admin/dashboard/traks', [AdminController::class, 'tracks'])->name('admin.dashboardTracks');
 Route::get('/admin/dashboard/genres', [AdminController::class, 'genres'])->name('admin.dashboardGenres');
 
+// like
+Route::post('/track/{track}/like', [LikeController::class, 'like'])->name('track.like');

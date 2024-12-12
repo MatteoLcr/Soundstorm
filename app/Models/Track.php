@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Like;
+use App\Models\User;
+use App\Models\Genre;
 use Illuminate\Database\Eloquent\Model;
 
 class Track extends Model
@@ -19,6 +22,9 @@ class Track extends Model
     }
 
     public function genres() {
-        return $this->belongsToMany(genre::class);
+        return $this->belongsToMany(Genre::class);
+    }
+    public function likes() {
+        return $this->hasMany(Like::class);
     }
 }
