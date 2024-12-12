@@ -92,10 +92,6 @@ class TrackController extends Controller implements HasMiddleware
      */
     public function edit(Track $track)
     {
-        if(!$track->authIsCreator()){
-            abort(403, 'non autorizzato'); 
-        }
-
         $genres = Genre::all();
         return view('track.edit', compact('track', 'genres'));
     }
@@ -135,7 +131,7 @@ class TrackController extends Controller implements HasMiddleware
         }
 
         $track->genres()->sync($request->genres);
-        return redirect(route('profile.page'))->with('success', 'Hai aggiornato correttamente il tuo brano');
+        return redirect(route('profilo.page'))->with('success', 'Hai aggiornato correttamente il tuo brano');
     }
 
     /**

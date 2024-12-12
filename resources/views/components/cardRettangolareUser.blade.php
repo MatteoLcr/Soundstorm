@@ -8,6 +8,7 @@
             <div>
                 <div class="d-flex justify-content-between align-items-start topTextCardrettangolare">
                     <h6 class="mt-1"><a href="{{route('track.filterByUser', ['user' => $track->user])}}">{{$track->user->name}}</a></h6>
+                  
                     @foreach($track->genres as $genre)
                     <a href="{{route('track.filterByGenre', ['genre' => $genre])}}" class="btnCardRettangolare px-2 text-start align-items-center">#{{$genre->name}}</a>
                     @endforeach

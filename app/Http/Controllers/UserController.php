@@ -9,11 +9,11 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index(User $users, Track $tracks, Genre $genres)
+    public function index(Genre $genres)
     {
-        $users = User::all();
-        $tracks = Track::all();
-        $genres = Genre::all();
-        return view('users.index', compact('users', 'tracks', 'genres'));
-    }   
+        $genres=Genre::all();
+        $genresTracks = Genre::with('tracks')->get();
+
+        return view( 'users.index', compact('genres','genresTracks'));
+    } 
 }

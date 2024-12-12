@@ -1,9 +1,9 @@
 <x-layout>
 
-<div class="container">
-    <div class="row">
-        <div class="col-6">
-            <form action="{{route('login')}}" class="rounded p-5 shadow" method="POST">
+<div class="container" >
+    <div class="row justify-content-center align-items-center loginCont">
+        
+            <form action="{{route('login')}}" class="col-5 d-flex flex-column justify-content-center align-items-center rounded p-5 shadow loginBox" method="POST">
                 @csrf
 
                 <div class="mb-3">
@@ -22,13 +22,13 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="loginBtn mt-4">Login</button>
                 <div class="mt-2">
-                    <span>Don't have an account? <a href="{{route('register')}}">Register</a></span>
+                    <span>Don't have an account? <a href="{{route('register')}}" class="textOrange">Register</a></span>
                 </div>
 
             </form>
-        </div>
+        
     </div>
 </div>
 

@@ -1,9 +1,32 @@
 
 .headerImgContainer{
-    margin-top: 70px;
+    margin-top: 50px;
     height: 400px;
     background-color: orangered;
     z-index: -1;
+}
+
+.sliderBtn1{
+    height: 35px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 150px;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+}
+.sliderBtn1:hover{
+    background-color: rgb(24, 24, 24);
+}
+
+.sliderBtn2{
+    height: 35px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 250px;
+    background-color: orangered;
+    color: white;
+    border: 1px solid orangered;
 }
 
 .cardQuadrata{
@@ -31,4 +54,29 @@
 
 .cont:hover .controllerCardQuadrata audio{
     display: block;
+}
+
+
+
+.loginCont{
+    height: 100vh;
+}
+.loginBox{
+   max-height:350px ;
+    
+}
+.loginBtn{
+    border: 1px solid rgb(203, 203, 203);
+    width: 200px;
+    background-color: white;
+}
+.loginBtn:hover{
+    font-weight: 500;
+    color: white;
+    background-color: orangered;
+    border: 1px solid orangered;
+}
+.textOrange{
+    color: orangered;
+    font-weight: 500;
 }
