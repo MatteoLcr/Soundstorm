@@ -11,7 +11,7 @@ class PublicController extends Controller
 {
     public function homepage()
     {
-        $tracks =  $tracks = Track::orderBy('created_at', 'desc')->take(8)->get();
+        $tracks =  $tracks = Track::orderBy('created_at', 'desc')->take(15)->get();
         return view('welcome', compact('tracks'));
     }
 

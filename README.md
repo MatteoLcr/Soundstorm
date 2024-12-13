@@ -64,3 +64,23 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+<!-- <div class="row ">
+            <h5>BRANI CHE MI PIACCIONO</h5>
+        </div>
+        <div class="row justify-content-center">
+            @foreach($likes as $like)
+
+            @php
+                $like = $track->likes->where('user_id', auth()->user()->id)->first();
+                $is_liked = $like ? $like->like : 0;  
+                @endphp
+            @if($is_liked)
+            <div class="col-10 mb-5 d-flex flex-row justify-content-evenly">
+                <x-cardRettangolareUser :track="$track"></x-cardRettangolareUser>
+            </div>
+            @endif
+                @endforeach
+            </div>
+        </div> -->

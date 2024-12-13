@@ -1,0 +1,9 @@
+.genreBox{
+    background-color: rgb(237, 237, 237);
+    border-radius: 10px;
+}
+.genreBoxImg{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}

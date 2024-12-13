@@ -12,7 +12,7 @@ class UserController extends Controller
     public function index(Genre $genres)
     {
         $genres=Genre::all();
-        $genresTracks = Genre::with('tracks')->get();
+        $genresTracks = Track::with('genres')->get();
 
         return view( 'users.index', compact('genres','genresTracks'));
     } 

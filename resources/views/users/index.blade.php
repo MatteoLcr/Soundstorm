@@ -8,20 +8,28 @@
     </div>
 
     <div class="container">
-        @foreach ($genres as $genre)
-        <div class="row rowCustom mb-3">
-            <div class="col-6">
+        <div class="row justify-content-evenly">
+
+            @foreach ($genres as $genre)
+            <div class="col-5 p-3 mb-3 genreBox">
                 <h5>{{$genre->name}}</h5>
-                @foreach ($genresTracks as $genreTracks)
-                @if($genreTracks)
-                @for ($index = 0; $index < count($genreTracks->tracks); $index++)
-                <img src="{{Storage::url($genreTracks->tracks[$index]->user->profile->avatar)}}" alt="" width="100"; height="100">
-                    @dump($genreTracks->tracks[$index]->user->name)
-                @endfor
-                @endif
+                @php
+                $singleUserGenre = [];
+                foreach ($genresTracks as $genreTrack) {
+                if ($genreTrack->genres->contains($genre)) {
+                $singleUserGenre[] = $genreTrack->user->profile->avatar;
+                }
+                }
+                // Per ottenere solo nomi univoci
+                $singleUser = array_unique($singleUserGenre);
+                // Stampa la lista finale di utenti univoci
+                @endphp
+                @foreach ($singleUser as $user)
+                <img src="{{Storage::url($user)}}" class="mb-2 img-rounded img-fluid genreBoxImg" alt="">
                 @endforeach
             </div>
+            @endforeach
+
         </div>
-        @endforeach
     </div>
 </x-layout>
