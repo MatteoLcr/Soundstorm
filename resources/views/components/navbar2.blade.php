@@ -13,9 +13,9 @@
         <a href="{{route('user.index')}}" class="navBtn d-flex justify-content-center align-items-center">
             <h5>Artist</h5>
         </a>
-        <form class="d-flex align-items-center navSearchBar" role="search">
-            <input class="form-control ms-3 me-1" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-dark me-2" type="submit"><i class="bi bi-search"></i></button>
+        <form class="d-flex align-items-center navSearchBar" role="search" action="{{route('track.search')}}" method="get">
+            <input class="form-control ms-3 me-1" type="search" placeholder="Search" aria-label="Search" name="query">
+            <button class="btn btn-dark me-2" type="submit"> <i class="bi bi-search"></i> </button>
         </form>
         <a href="{{route('track.create')}}" class="navBtn d-flex justify-content-center align-items-center">
             <h5>Carica</h5>

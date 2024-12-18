@@ -5,10 +5,16 @@ namespace App\Models;
 use App\Models\Like;
 use App\Models\User;
 use App\Models\Genre;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Testing\Fluent\Concerns\Has;
+use Laravel\Scout\Searchable;
 
 class Track extends Model
 {
+
+    use HasFactory, Searchable;
+
     protected $fillable = [
         'title',
         'cover',
@@ -16,6 +22,15 @@ class Track extends Model
         'path',
         'user_id',
     ];
+
+    public function toSearchableArray() {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'user' => $this->user,
+            'genre' => $this->genre
+        ];
+    }
 
     public function user() {
         return $this->belongsTo(User::class);

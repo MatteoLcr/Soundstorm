@@ -15,7 +15,7 @@ class TrackController extends Controller implements HasMiddleware
     public static function middleware(): array
     {
         return [
-            new Middleware('auth', except: ['index', 'searchByUser'])
+            new Middleware('auth', except: ['index', 'searchByUser', 'tracksearch'])
         ];
     }
 
@@ -142,5 +142,11 @@ class TrackController extends Controller implements HasMiddleware
         $track->genres()->detach($track->genres);
         $track->delete();
         return redirect(route('profile.page'))->with('success', 'Hai eliminato correttamente il tuo brano');
+    }
+
+    public function trackSearch(Request $request){
+        $query = $request->input('query');
+        $tracks = Track::search($query)->orderBy('created_at', 'desc')-> get();
+        return view('track.search-index', compact('tracks', 'query'));
     }
 }

@@ -33,6 +33,9 @@ Route::get('/track/aggiorna/{track}/brano', [TrackController::class, 'edit'])->n
 Route::put('/track/aggiorna/{track}/brano', [TrackController::class, 'update'])->name('track.update');
 // eliminazione di un brano
 Route::delete('/track/elimina/{track}/brano', [TrackController::class, 'destroy'])->name('track.destroy');
+// ROTTA BARRA DI RICERCA
+Route::get('/track/search', [TrackController::class, 'trackSearch'])->name('track.search');
+
 
 // aggiungere, modificare e cancellare un genere
 Route::post('/admin/dashboard/genres/store', [AdminController::class, 'store'])->name('admin.dashboard.genres.store');
