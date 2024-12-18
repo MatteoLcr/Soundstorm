@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 topItem">
-                <h3>TUTTI GLI ARTISTI</h3>
+                <h3 class="ms-5 mb-5">TUTTI GLI ARTISTI SUDDIVISI PER GENERE MUSICALE</h3>
             </div>
         </div>
     </div>
@@ -12,7 +12,7 @@
 
             @foreach ($genres as $genre)
             <div class="col-5 p-3 mb-3 genreBox">
-                <h5>{{$genre->name}}</h5>
+                <h5 class="genreName">{{$genre->name}}</h5>
                 @php
                 $singleUserGenre = [];
                 foreach ($genresTracks as $genreTrack) {
